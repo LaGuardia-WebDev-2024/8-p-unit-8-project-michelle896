@@ -1,57 +1,67 @@
-//🟢setup Function - will run once
 setup = function() {
-    size(600, 400);
-    background(255,255,255,0);
-    
-    
-drawHeart(100,100)
-drawHeart(100,150)
-drawHeart(100,200)
-drawHeart(200,200)
-drawHeart(200,100)
-drawHeart(200,150)
-drawHeart(300,100)
-drawHeart(300,150)
-drawHeart(300,200)
-drawHeart(400,100)
-drawHeart(400,150)
-drawHeart(400,200)
-drawRibbon(50,250)
-drawRibbon(50,300)
-drawRibbon(450,250)
-drawRibbon(450,300)
-drawRibbon(250,150)
-
+    size(400, 400);
 };
 
-//🟢draw Function - will run on repeat
+var answer = 1;
+
 draw = function(){
+  background(100,100,100);
+  fill(0, 0, 0);
+  ellipse(200, 200, 375, 375);
+  fill(60, 0, 255);
+  triangle(200, 104, 280, 280, 120, 280);
+  fill(255, 255, 255);
+  
+  if (answer == 1) {
+    text("I'm not sure", 176, 200);
+    
+  }
+   if (answer == 2) {
+    text("Yes", 176, 200);
+    
+  }
+  if (answer == 3) {
+    text("Maybe", 176, 200);
+    
+  }
+    if (answer == 4) {
+    text("NO", 176, 200);
 
+  }
+    if (answer == 5) {
+    text("Of Course", 176, 200);
+
+  }
+  
+  //Example Function Call
+drawFish(300, 200, color(255,37,182));
+ellipse(mouseX, mouseY, 20,20);
+  
+  
+  
+  if(mousePressed){
+  text("lalalala", random(0,500),random(0,300))
+  }
+  
 };
 
-//🟢mouseClicked Function - will run when mouse is clicked
 mouseClicked = function(){
-drawMoney(250,300)
-drawMoney(200,300)
-drawMoney(300,300)
-}
+  answer = round(random(1, 5));
+};
+//Function Definition
+var drawFish = function(fishX, fishY, fishColor){
+  fill(fishColor);
+  strokeWeight(1);
+  stroke(0,0,0);
+  ellipse(fishX+20,fishY,13,25); //tail
+  ellipse(fishX,fishY,40,20); //body
+  fill(0,0,0);
+  ellipse(fishX-10,fishY-2, 3 ,5); //eye
+  fill(226, 90, 76 );
+  ellipse(fishX-12,fishY+4,10,3); //mouth
+};
 
 
-//🟡drawHeart Function - will run when called
-var drawHeart = function(heartX, heartY, heartColor){
-  textSize(80);
-  fill(heartColor);
-  text("❤️", heartX, heartY);
-};
-//🟡drawRibbon Function - will run when called
-var drawRibbon = function(ribbonX, ribbonY, ribbonColor){
-  textSize(80);
-  fill(ribbonColor);
-  text("🎀", ribbonX, ribbonY);
-};
-//🟡drawMoney Function - will run when called
-var drawMoney = function(moneyX, moneyY, moneyColor){
-  textSize(80);
-  fill(moneyColor);
-  text("💰", moneyX, moneyY);
-};
+
+
+
